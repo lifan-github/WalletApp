@@ -32,7 +32,7 @@ class MarketIndex extends Component {
     const { I18n } = this.props.settingReducer;
     let tab_data = [
       {title: I18n.t('tab1'), icon: IconStore.home, color: '#666', onPress: () => Actions.HomeIndex()},
-      {title: I18n.t('tab2'), icon: IconStore.miners2, color: 'red'},
+      {title: I18n.t('tab2'), icon: IconStore.miners2, color: '#253a59'},
       {title: I18n.t('tab3'), icon: IconStore.personal, color: '#666', onPress: () => Actions.SettingIndex()},
     ];
     return (
@@ -52,7 +52,6 @@ class MarketIndex extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
   },
   contentBox: {
     flex: 1,

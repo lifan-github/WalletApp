@@ -22,6 +22,7 @@ import SettingIndex from './app/containers/settings/index';
 import UseSet from './app/containers/settings/UseSet';
 import Language from './app/containers/settings/Language';
 import MonetaryUnit from "./app/containers/settings/MonetaryUnit";
+import Transfer from './app/containers/home/Transfer';
 
 //非开发模式关闭console
 if (!__DEV__) {
@@ -109,6 +110,11 @@ export default class App extends Component {
                 <Scene
                   component={HomeIndex}
                   key="HomeIndex"
+                  hideNavBar
+                />
+                <Scene
+                  component={Transfer}
+                  key="Transfer"
                   hideNavBar
                 />
               </Stack>

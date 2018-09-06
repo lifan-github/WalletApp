@@ -30,7 +30,7 @@ class SettingIndex extends Component {
     let tab_data = [
       {title: I18n.t('tab1'), icon: IconStore.home, color: '#666', onPress: () => Actions.HomeIndex()},
       {title: I18n.t('tab2'), icon: IconStore.miners, color: '#666', onPress: () => Actions.MarketIndex()},
-      {title: I18n.t('tab3'), icon: IconStore.personal2, color: 'red'},
+      {title: I18n.t('tab3'), icon: IconStore.personal2, color: '#253a59'},
     ];
     return (
       <View style={styles.container}>
@@ -62,7 +62,6 @@ class SettingIndex extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
   },
   contentBox: {
     flex: 1,
