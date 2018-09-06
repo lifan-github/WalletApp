@@ -16,10 +16,6 @@ class SettingIndex extends Component {
     this.state = {}
   }
 
-  componentWillMount() {
-
-  }
-
   componentDidMount() {
 
   }
@@ -30,6 +26,12 @@ class SettingIndex extends Component {
 
   render() {
     const { I18n } = this.props.settingReducer;
+    let tab_data = [
+      {title: I18n.t('tab1')},
+      {title: I18n.t('tab2')},
+      {title: I18n.t('tab3')},
+      {title: I18n.t('tab4')},
+    ];
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor={"#394151"}/>
@@ -51,7 +53,7 @@ class SettingIndex extends Component {
             <Text>{I18n.t('aboutUs')}</Text>
           </View>
         </View>
-        <TabBar/>
+        <TabBar data={tab_data}/>
       </View>
     )
   }

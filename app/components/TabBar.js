@@ -9,31 +9,32 @@ import {Actions} from 'react-native-router-flux';
 
 export default class TabBar extends Component{
   render(){
+    const {data} = this.props;
     return(
       <View style={styles.tabBox}>
         <TouchableOpacity
           style={styles.tabItem}
           onPress={() => Actions.HomeIndex()}
         >
-          <Text>钱包</Text>
+          <Text>{data[0].title}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.tabItem}
           onPress={() => Actions.MarketIndex()}
         >
-          <Text>市场</Text>
+          <Text>{data[1].title}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.tabItem}
           onPress={() => Actions.OverviewIndex()}
         >
-          <Text>总览</Text>
+          <Text>{data[2].title}</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.tabItem}
           onPress={() => Actions.SettingIndex()}
         >
-          <Text>我的</Text>
+          <Text>{data[3].title}</Text>
         </TouchableOpacity>
       </View>
     )
@@ -47,7 +48,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'red'
+    backgroundColor: '#fbfbfb',
+    borderTopWidth: 1,
+    borderTopColor: '#ececec'
   },
   tabItem: {
     flex: 1,

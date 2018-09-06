@@ -28,6 +28,12 @@ class OverviewIndex extends Component {
 
   render() {
     const { I18n } = this.props.settingReducer;
+    let tab_data = [
+      {title: I18n.t('tab1')},
+      {title: I18n.t('tab2')},
+      {title: I18n.t('tab3')},
+      {title: I18n.t('tab4')},
+    ];
     return (
       <View style={styles.container}>
         <NavBar title={I18n.t('tab3')}/>
@@ -36,7 +42,7 @@ class OverviewIndex extends Component {
             {I18n.t('english')}
           </Text>
         </View>
-        <TabBar/>
+        <TabBar data={tab_data}/>
       </View>
     )
   }

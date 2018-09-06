@@ -15,7 +15,7 @@ export default class Starting extends Component {
   componentDidMount() {
     setTimeout(() => {
       Actions.root();
-    }, 1500)
+    }, 2000)
   }
 
   componentWillUnmount() {

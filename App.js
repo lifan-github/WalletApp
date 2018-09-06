@@ -23,8 +23,6 @@ import UseSet from './app/containers/settings/UseSet';
 import Language from './app/containers/settings/Language';
 import MonetaryUnit from "./app/containers/settings/MonetaryUnit";
 
-let I18n = store.getState().settingReducer.I18n;
-
 //非开发模式关闭console
 if (!__DEV__) {
   global.console = {
@@ -115,7 +113,6 @@ export default class App extends Component {
               </Stack>
               <Stack
                 key='Test2'
-                title={I18n.t('tab2')}
               >
                 <Scene
                   component={MarketIndex}
@@ -125,7 +122,6 @@ export default class App extends Component {
               </Stack>
               <Stack
                 key="Test3"
-                title={I18n.t('tab3')}
               >
                 <Scene
                   component={OverviewIndex}
@@ -135,7 +131,6 @@ export default class App extends Component {
               </Stack>
               <Stack
                 key="Test4"
-                title={I18n.t('tab4')}
               >
                 <Scene
                   component={SettingIndex}
@@ -147,20 +142,17 @@ export default class App extends Component {
               <Scene
                 component={UseSet}
                 key="UseSet"
-                title={I18n.t('settings')}
-                hideNavBar={false}
+                hideNavBar
               />
               <Scene
                 component={Language}
                 key="Language"
-                title={I18n.t('language')}
-                hideNavBar={false}
+                hideNavBar
               />
               <Scene
                 component={MonetaryUnit}
                 key="MonetaryUnit"
-                title={I18n.t('unit')}
-                hideNavBar={false}
+                hideNavBar
               />
             </Stack>
           </Modal>

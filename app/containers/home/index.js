@@ -22,6 +22,12 @@ class HomeIndex extends Component {
 
   render() {
     const { I18n } = this.props.settingReducer;
+    let tab_data = [
+      {title: I18n.t('tab1')},
+      {title: I18n.t('tab2')},
+      {title: I18n.t('tab3')},
+      {title: I18n.t('tab4')},
+    ];
     return (
       <View style={styles.container}>
         <NavBar title={I18n.t('tab1')}/>
@@ -38,7 +44,7 @@ class HomeIndex extends Component {
             <Text>子页面</Text>
           </TouchableOpacity>
         </View>
-        <TabBar/>
+        <TabBar data={tab_data}/>
       </View>
     )
   }
