@@ -12,6 +12,7 @@ import {
   Modal,
   Stack,
 } from 'react-native-router-flux';
+import CardStackStyleInterpolator from 'react-navigation-stack/dist/views/StackView/StackViewStyleInterpolator';
 import {Provider} from 'react-redux';
 import store from './app/redux/reducers';
 import Starting from './app/containers/Starting';
@@ -83,6 +84,7 @@ export default class App extends Component {
           <Modal
             key="modal"
             hideNavBar
+            transitionConfig={() => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})}
           >
             <Stack
               key="LoginModal"
@@ -99,61 +101,62 @@ export default class App extends Component {
               hideNavBar
               headerMode='screen'
               key="root"
-            >
+              transitionConfig={() => ({screenInterpolator: CardStackStyleInterpolator.forFade})}>
 
               <Stack
-                key="Test1"
+                key="tab1"
+                transitionConfig={() => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})}
               >
                 <Scene
                   component={HomeIndex}
                   key="HomeIndex"
                   hideNavBar
                 />
-
               </Stack>
+
               <Stack
-                key='Test2'
-              >
+                key="tab2"
+                transitionConfig={() => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})}>
                 <Scene
                   component={MarketIndex}
                   key="MarketIndex"
                   hideNavBar
                 />
               </Stack>
+
               <Stack
-                key="Test3"
-              >
+                key="tab3"
+                transitionConfig={() => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})}>
                 <Scene
                   component={OverviewIndex}
                   key="OverviewIndex"
                   hideNavBar
                 />
               </Stack>
+
               <Stack
-                key="Test4"
-              >
+                key="tab4"
+                transitionConfig={() => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})}>
                 <Scene
                   component={SettingIndex}
                   hideNavBar
-                  key="SettingIndex"
+                  key="SettingIndex"/>
+                <Scene
+                  component={UseSet}
+                  key="UseSet"
+                  hideNavBar
+                />
+                <Scene
+                  component={Language}
+                  key="Language"
+                  hideNavBar
+                />
+                <Scene
+                  component={MonetaryUnit}
+                  key="MonetaryUnit"
+                  hideNavBar
                 />
               </Stack>
-              {/*// 推荐把需要的路由放在<Tabs/>后面，跳转的时候通过key，Actions.Test3_key*/}
-              <Scene
-                component={UseSet}
-                key="UseSet"
-                hideNavBar
-              />
-              <Scene
-                component={Language}
-                key="Language"
-                hideNavBar
-              />
-              <Scene
-                component={MonetaryUnit}
-                key="MonetaryUnit"
-                hideNavBar
-              />
             </Stack>
           </Modal>
         </Router>

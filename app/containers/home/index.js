@@ -3,9 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
 import { connect } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import TabBar from '../../components/TabBar';
@@ -38,11 +36,6 @@ class HomeIndex extends Component {
           <Text style={styles.welcome}>
             {I18n.t('chinese')}
           </Text>
-          <TouchableOpacity
-            onPress={() => Actions.UseSet()}
-          >
-            <Text>子页面</Text>
-          </TouchableOpacity>
         </View>
         <TabBar data={tab_data}/>
       </View>
