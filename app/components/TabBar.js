@@ -3,39 +3,28 @@ import {
   Text,
   View,
   StyleSheet,
-  TouchableOpacity
+  TouchableWithoutFeedback
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
 
 export default class TabBar extends Component{
   render(){
     const {data} = this.props;
+    let tabItems = data.map((item, index) => {
+      return(
+        <TouchableWithoutFeedback
+          key={index}
+          onPress={item.onPress}
+        >
+          <View style={styles.tabItem}>
+            <Text style={[styles.tabIconStyle, {color: item.color}]}>{item.icon}</Text>
+            <Text style={[styles.tabText, {color: item.color}]}>{item.title}</Text>
+          </View>
+        </TouchableWithoutFeedback>
+      )
+    });
     return(
       <View style={styles.tabBox}>
-        <TouchableOpacity
-          style={styles.tabItem}
-          onPress={() => Actions.HomeIndex()}
-        >
-          <Text>{data[0].title}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.tabItem}
-          onPress={() => Actions.MarketIndex()}
-        >
-          <Text>{data[1].title}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.tabItem}
-          onPress={() => Actions.OverviewIndex()}
-        >
-          <Text>{data[2].title}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.tabItem}
-          onPress={() => Actions.SettingIndex()}
-        >
-          <Text>{data[3].title}</Text>
-        </TouchableOpacity>
+        {tabItems}
       </View>
     )
   }
@@ -56,5 +45,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  tabIconStyle: {
+    fontSize: 24
+  },
+  tabText: {
+    fontSize: 12
   }
 });

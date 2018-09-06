@@ -7,6 +7,8 @@ import {
 import NavBar from '../../components/NavBar';
 import TabBar from '../../components/TabBar';
 import {connect} from "react-redux";
+import IconStore from "../../images/icons";
+import {Actions} from "react-native-router-flux";
 
 class MarketIndex extends Component {
   constructor(props) {
@@ -29,10 +31,9 @@ class MarketIndex extends Component {
   render() {
     const { I18n } = this.props.settingReducer;
     let tab_data = [
-      {title: I18n.t('tab1')},
-      {title: I18n.t('tab2')},
-      {title: I18n.t('tab3')},
-      {title: I18n.t('tab4')},
+      {title: I18n.t('tab1'), icon: IconStore.home, color: '#666', onPress: () => Actions.HomeIndex()},
+      {title: I18n.t('tab2'), icon: IconStore.miners2, color: 'red'},
+      {title: I18n.t('tab3'), icon: IconStore.personal, color: '#666', onPress: () => Actions.SettingIndex()},
     ];
     return (
       <View style={styles.container}>

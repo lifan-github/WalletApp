@@ -18,7 +18,6 @@ import store from './app/redux/reducers';
 import Starting from './app/containers/Starting';
 import HomeIndex from './app/containers/home/index';
 import MarketIndex from './app/containers/market/index';
-import OverviewIndex from './app/containers/overview/index';
 import SettingIndex from './app/containers/settings/index';
 import UseSet from './app/containers/settings/UseSet';
 import Language from './app/containers/settings/Language';
@@ -52,7 +51,7 @@ const getSceneStyle = () => ({
 });
 
 const onBackPress = () => {
-  const mainRoute = ['Starting', 'HomeIndex', 'MarketIndex', 'MarketIndex', 'SettingIndex'];
+  const mainRoute = ['Starting', 'HomeIndex', 'MarketIndex', 'SettingIndex'];
   if (mainRoute.indexOf(Actions.currentScene) !== -1) {
     if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
       // 退出APP之前清空顶层modal的sence场景
@@ -126,16 +125,6 @@ export default class App extends Component {
 
               <Stack
                 key="tab3"
-                transitionConfig={() => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})}>
-                <Scene
-                  component={OverviewIndex}
-                  key="OverviewIndex"
-                  hideNavBar
-                />
-              </Stack>
-
-              <Stack
-                key="tab4"
                 transitionConfig={() => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})}>
                 <Scene
                   component={SettingIndex}
