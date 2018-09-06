@@ -4,8 +4,10 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
+import NavBar from '../../components/NavBar';
+import {connect} from "react-redux";
 
-export default class MonetaryUnit extends Component {
+class MonetaryUnit extends Component {
   constructor(props) {
     super(props);
     this.state = {}
@@ -24,8 +26,10 @@ export default class MonetaryUnit extends Component {
   }
 
   render() {
+    const { I18n } = this.props.settingReducer;
     return (
       <View style={styles.container}>
+        <NavBar title={I18n.t('unit')}/>
         <Text>欢迎</Text>
       </View>
     )
@@ -35,7 +39,13 @@ export default class MonetaryUnit extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
   }
-})
+});
+
+
+export default connect((state) => {
+  const { settingReducer } = state;
+  return {
+    settingReducer
+  }
+})(MonetaryUnit)

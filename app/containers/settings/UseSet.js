@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {Actions} from "react-native-router-flux";
 import {connect} from "react-redux";
+import NavBar from '../../components/NavBar';
 
 class UseSet extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class UseSet extends Component {
     const { I18n } = this.props.settingReducer;
     return (
       <View style={styles.container}>
+        <NavBar title={I18n.t('settings')}/>
         <TouchableOpacity
           style={styles.rowViewBox}
           onPress={() => Actions.Language()}

@@ -1,7 +1,6 @@
 import * as types from '../actions/actionTypes';
 import {I18n} from '../../language/I18n';
 
-
 // 初始化值
 const settingInit = {
   I18n: I18n,

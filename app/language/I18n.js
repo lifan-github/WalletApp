@@ -3,12 +3,9 @@ import en from './en';
 import zh from './zh';
 
 //默认为英文，会被系统默认替代
-// I18n.defaultLocale = 'en';
-/**
- * 每次启动APP时获取用户设置的语言
- * @type {string}
- */
-I18n.locale = 'zh';
+I18n.defaultLocale = 'en';
+// I18n.locale = 'zh';
+
 /**
  * 官方推荐
  * 假如系统返回的语言格式en-US或en-GB,I18n会自动寻找 en-US.js或en-GB.js,如果找不到会接着找 en.js
