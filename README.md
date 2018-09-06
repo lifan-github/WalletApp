@@ -1,0 +1,2 @@
+# WalletApp
+init app
