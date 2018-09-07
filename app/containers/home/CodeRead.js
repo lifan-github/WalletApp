@@ -15,6 +15,7 @@ export default class CodeRead extends Component {
     super(props);
     this.state = {
       moveAnim: new Animated.Value(0),
+      flashMode: RNCamera.Constants.FlashMode.off
     }
   }
 
@@ -45,10 +46,14 @@ export default class CodeRead extends Component {
   };
 
   openFlash(){
-    console.log("999999999")
+    //重新设置闪光灯状态
+    this.setState({
+      flashMode: RNCamera.Constants.FlashMode.torch
+    })
   }
 
   render() {
+    const {flashMode} = this.state;
     return (
       <View style={styles.container}>
         <NavBar title={"扫码"}/>
@@ -60,10 +65,10 @@ export default class CodeRead extends Component {
             style={styles.preview}
             type={RNCamera.Constants.Type.back}//后置摄像头
             autoFocus={RNCamera.Constants.AutoFocus.on}//自动对焦设置
-            flashMode={RNCamera.Constants.FlashMode.on}//相机的闪光模式
+            flashMode={flashMode}//相机的闪光模式
             onBarCodeRead={this.onBarCodeRead} //扫码
-            permissionDialogTitle={'Permission to use camera'} //调用相机权限title及内容
-            permissionDialogMessage={'We need your permission to use your camera phone'}
+            permissionDialogTitle={'使用相机的权限'} //调用相机权限title及内容
+            permissionDialogMessage={'我们需要您的同意才能使用您的照相手机'}
           >
             <View style={styles.rectangleContainer}>
               <Text style={styles.rectangleText}>请将镜头对准二维码进行扫描</Text>
