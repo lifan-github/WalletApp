@@ -23,6 +23,7 @@ import UseSet from './app/containers/settings/UseSet';
 import Language from './app/containers/settings/Language';
 import MonetaryUnit from "./app/containers/settings/MonetaryUnit";
 import Transfer from './app/containers/home/Transfer';
+import CodeRead from './app/containers/home/CodeRead';
 
 //非开发模式关闭console
 if (!__DEV__) {
@@ -115,6 +116,11 @@ export default class App extends Component {
                 <Scene
                   component={Transfer}
                   key="Transfer"
+                  hideNavBar
+                />
+                <Scene
+                  component={CodeRead}
+                  key="CodeRead"
                   hideNavBar
                 />
               </Stack>
