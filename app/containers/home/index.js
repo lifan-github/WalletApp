@@ -38,6 +38,7 @@ class HomeIndex extends Component {
           <View style={styles.buttonBox}>
             <TouchableOpacity
               style={styles.buttonStyle}
+              onPress={() => Actions.Collection()}
             >
               <Text style={styles.buttonText}>收款</Text>
             </TouchableOpacity>
